@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Marvel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Onboarding" translatesAutoresizingMaskIntoConstraints="NO" id="IXe-go-HFU">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sQy-PV-Gqd">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="IXe-go-HFU" secondAttribute="bottom" id="8cm-aI-dxK"/>
+                            <constraint firstItem="sQy-PV-Gqd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="G5n-z9-grA"/>
+                            <constraint firstAttribute="trailing" secondItem="IXe-go-HFU" secondAttribute="trailing" id="ITw-Ux-Lua"/>
+                            <constraint firstItem="sQy-PV-Gqd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="adk-dn-Jhm"/>
+                            <constraint firstItem="sQy-PV-Gqd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gFu-yy-zUM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sQy-PV-Gqd" secondAttribute="bottom" id="lcU-q7-izs"/>
+                            <constraint firstItem="IXe-go-HFU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pG9-VZ-amg"/>
+                            <constraint firstItem="IXe-go-HFU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="x35-lo-jjx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gifImage" destination="sQy-PV-Gqd" id="nqP-Yj-FP2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15" y="9"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Onboarding" width="393" height="852"/>
+    </resources>
+</document>
