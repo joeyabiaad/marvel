@@ -35,8 +35,9 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: CharacterDelegate {
     
-    func characterPressed(_ character: Character) {
+    func characterPressed(_ character: Result) {
         let vc = CharacterDetailsViewController.instantiate(fromAppStoryboard: .Character)
+        vc.character = character
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

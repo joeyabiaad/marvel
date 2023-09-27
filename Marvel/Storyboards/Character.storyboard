@@ -240,7 +240,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="jdd-oX-5sf" secondAttribute="trailing" constant="16" id="GEv-ge-JJe"/>
                                         <constraint firstItem="jdd-oX-5sf" firstAttribute="leading" secondItem="yfc-bP-Sgj" secondAttribute="leading" constant="16" id="S8A-Ne-1mw"/>
@@ -250,7 +250,7 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="2bJ-Ed-OlT">
                                     <rect key="frame" x="0.0" y="211.33333015441895" width="393" height="112"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="cn0-vm-Seb">
@@ -294,12 +294,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="mir-rc-la0"/>
                     <connections>
+                        <outlet property="characterImageView" destination="99l-mf-ZbB" id="zwf-5x-j2k"/>
                         <outlet property="contentMarginConstraint" destination="C4Q-c0-GHt" id="U5R-Ph-glA"/>
                         <outlet property="contentParentView" destination="tN2-Mu-1NI" id="QDC-jR-Yns"/>
                         <outlet property="contentTopConstraint" destination="5zy-Uy-pCr" id="X3I-Vp-utD"/>
                         <outlet property="contentView" destination="eKb-tS-2Iv" id="BcS-HD-5qd"/>
                         <outlet property="imageTapView" destination="zxg-oy-dB0" id="iyr-XU-dHW"/>
-                        <outlet property="nftImageView" destination="99l-mf-ZbB" id="zwf-5x-j2k"/>
                         <outlet property="tableView" destination="GMX-6Y-Mge" id="HaP-us-sjL"/>
                         <outlet property="titleLabel" destination="jdd-oX-5sf" id="XYw-Ov-4vX"/>
                     </connections>

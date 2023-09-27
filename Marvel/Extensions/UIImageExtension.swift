@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import SDWebImage
 
-
 extension UIImageView {
     
     func addCharacterImage(character: Result?, completionHandler: SingleResult<Bool>? = nil) {
@@ -52,35 +51,3 @@ extension UIImageView {
         }
     }
 }
-
-//extension UIImageView {
-//
-//    func addCharacterImage(character: Result?, completionHandler: SingleResult<Bool>? = nil) {
-//        guard let character = character else {
-//            completionHandler?(false)
-//            return
-//        }
-//
-//        if let thumbnailPath = character.thumbnail?.path,
-//           let thumbnailExtension = character.thumbnail?.extension,
-//           let imageUrl = URL(string: "\(thumbnailPath).\(thumbnailExtension)") {
-//            print("\(imageUrl)")
-//            // Start animation (assuming you're using a loading animation)
-////            self.isSkeletonable = true
-////            self.showAnimatedGradientSkeleton(usingGradient: .init(baseColor: Constants.Colors.headerGray), animation: nil, transition: .crossDissolve(0.2))
-////            self.startSkeletonAnimation()
-////
-//            // Set the image using an image loading library like SDWebImage
-//            self.sd_setImage(with: imageUrl) { _, _, _, _ in
-//                // Stop animation when image loading is complete
-////                self.stopSkeletonAnimation()
-////                self.hideSkeleton()
-//                completionHandler?(true)
-//            }
-//        } else {
-//            // No valid thumbnail information found in the NFT, clear the image view
-//            self.image = nil
-//            completionHandler?(false)
-//        }
-//    }
-//}

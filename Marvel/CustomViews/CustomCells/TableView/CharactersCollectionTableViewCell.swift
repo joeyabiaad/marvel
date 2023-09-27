@@ -75,7 +75,7 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let character = Character(name:"SpiderMan")
+        let character = self.character[indexPath.item]
         self.delegate?.characterPressed(character)
     }
     
@@ -88,5 +88,5 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
 }
 
 protocol CharacterDelegate: AnyObject {
-    func characterPressed(_ character: Character)
+    func characterPressed(_ character: Result)
 }

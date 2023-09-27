@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Moya
+import SwiftyJSON
 
 class CharacterDetailsViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var nftImageView: UIImageView!
+    @IBOutlet weak var characterImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var contentParentView: UIView!
     @IBOutlet weak var contentView: UIView!
@@ -19,11 +21,33 @@ class CharacterDetailsViewController: UIViewController {
     @IBOutlet weak var contentMarginConstraint: NSLayoutConstraint!
     
     private var contentHeight: CGFloat = 0
+    private var detailsList: [CharacterDetails] = []
+    
+    internal var character: Result?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.contentHeight = self.contentParentView.bounds.height
         self.initializeTableView()
+        self.characterImageView.addCharacterImage(character: character)
+        self.titleLabel.text = self.character?.name
+        self.setupData()
+    }
+    
+    private func setupData() {
+        if let comicsItems = self.character?.comics?.items {
+            let comicsNames = comicsItems.compactMap { $0.name }
+            self.detailsList.append(CharacterDetails(type: .comics, values: comicsNames))
+            
+        }
+        self.detailsList.append(CharacterDetails(type: .events, values: ["test"], title: "Events"))
+        self.detailsList.append(CharacterDetails(type: .series, values: ["test"], title: "Series"))
+        self.detailsList.append(CharacterDetails(type: .stories, values: ["test"], title: "Stories"))
+    }
+    
+    private func reloadData() {
+//        self.setupData()
+        self.tableView.reloadData()
     }
     
     // MARK: - Actions
@@ -38,8 +62,10 @@ class CharacterDetailsViewController: UIViewController {
 extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     
     private func initializeTableView() {
-        let nib = UINib(nibName: "CharacterTableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: "CharacterTableViewCell")
+        let nib = UINib(nibName: "CharacterDetailsTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: "CharacterDetailsTableViewCell")
+        let nib2 = UINib(nibName: "AboutCollectionTableViewCell", bundle: nil)
+        self.tableView.register(nib2, forCellReuseIdentifier: "AboutCollectionTableViewCell")
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -49,22 +75,96 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        print("\(self.detailsList.count)")
+        return self.detailsList.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let characterDetails = self.detailsList[section]
+        
+        if section >= self.detailsList.count { return nil }
+        let header = self.tableView.dequeueReusableCell(withIdentifier: "CharacterDetailsTableViewCell") as! CharacterDetailsTableViewCell
+        header.setupCell(model: self.detailsList[section])
+        
+        if characterDetails.type.expandable {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(headerPressed(sender:)))
+            header.isUserInteractionEnabled = true
+            header.dropDownImage.tag = 1000 + section
+            header.tag = 100 + section
+            header.addGestureRecognizer(tap)
+        }
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 48
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-        
+        let charachterDetails = self.detailsList[section]
+        switch charachterDetails.type {
+        case .comics:
+            return charachterDetails.isExpanded ? (self.character?.comics?.items ?? []).count:0
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 74
+        let charachterDetails = self.detailsList[indexPath.section]
+        switch charachterDetails.type {
+        default:
+            return 48
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CharacterTableViewCell", for: indexPath) as! CharacterTableViewCell
-        cell.selectionStyle = .none
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AboutCollectionTableViewCell", for: indexPath) as! AboutCollectionTableViewCell
+        
+        let characterDetails = self.detailsList[indexPath.section]
+        switch characterDetails.type {
+        case .comics:
+            if let values = characterDetails.values {
+                ///Get the specific comic title
+                let comicTitle = values[indexPath.row]
+                ///Set the comic title in the label
+                cell.descriptionLabel.text = comicTitle
+            }
+            cell.selectionStyle = .none
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AboutCollectionTableViewCell", for: indexPath) as! AboutCollectionTableViewCell
+            cell.selectionStyle = .none
+            return cell
+        }
+    }
+    
+    // MARK: - Header pressed
+    
+    @objc func headerPressed(sender: UIGestureRecognizer) {
+        let section = (sender.view?.tag ?? 100) - 100
+        
+        //        let indexPaths: [IndexPath] = [IndexPath(row: 0, section: section)]
+        
+        if self.detailsList[section].isExpanded {
+            /// close
+            self.detailsList[section].isExpanded = false
+            //            self.tableView.deleteRows(at: indexPaths, with: .fade)
+        } else {
+            /// open
+            self.detailsList[section].isExpanded = true
+            //            self.tableView.insertRows(at: indexPaths, with: .fade)
+        }
+        /// arrow
+        if let imageViewOfSection = self.view.viewWithTag(1000 + section) as? UIImageView {
+            imageViewOfSection.image = self.detailsList[section].isExpanded ? UIImage(named: "arrowUp"):UIImage(named: "arrowDown")
+            imageViewOfSection.tintColor = .white
+        }
+        self.reloadData()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -114,5 +214,46 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
         self.contentView.cornerRadius = startingRadius - (radiusDiff * scale)
         
         self.view.layoutIfNeeded()
+    }
+}
+
+struct CharacterDetails {
+    var isExpanded: Bool!
+    var type: CharacterDetailsType!
+    var values: [String]?
+    var title: String?
+    
+    init(type: CharacterDetailsType,values: [String]? = nil, title: String? = nil) {
+        self.isExpanded = false
+        self.type = type
+        self.values = values
+        self.title = title
+    }
+}
+
+enum CharacterDetailsType {
+    case comics
+    case events
+    case series
+    case stories
+    
+    var title: String {
+        switch self {
+        case .comics:
+            return "Comics"
+        case .events:
+            return "Events"
+        case .series:
+            return "Series"
+        case .stories:
+            return "Stories"
+        }
+    }
+    
+    var expandable: Bool {
+        switch self {
+        default:
+            return true
+        }
     }
 }

@@ -13,6 +13,7 @@ enum CharactersService {
     static private let privateKey = "e95d2d869b30345d50a639f2f90c3c273a60f7e4"
     
     case getCharacters
+    case getCharactersComics(characterId: Int)
 }
 
 // MARK: - TargetType Protocol Implementation
@@ -24,33 +25,35 @@ extension CharactersService: TargetType {
     }
     
     var baseURL: URL {
-        return URL(string: "https://gateway.marvel.com/v1/public")!
+        return URL(string: "https://gateway.marvel.com/v1/public/characters")!
     }
     
     var path: String {
         switch self {
         case .getCharacters:
-            return "/characters"
+            return ""
+        case .getCharactersComics(let characterId):
+            return "\(characterId)/comics"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getCharacters:
+        case .getCharacters, .getCharactersComics:
             return .get
         }
     }
     
     var param: [String: Any] {
         switch self {
-        case .getCharacters:
+        case .getCharacters, .getCharactersComics:
             return [:]
         }
     }
     
     var task: Task {
         switch self {
-        case .getCharacters:
+        case .getCharacters, .getCharactersComics:
             let timestamp = String(Date().timeIntervalSince1970)
             let hash = "\(timestamp)\(CharactersService.privateKey)\(CharactersService.publicKey)".md5
             let authParameters: [String: Any] = [
