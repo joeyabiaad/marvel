@@ -11,6 +11,8 @@ class CharactersCollectionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    weak var delegate: CharacterDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.initializeCollectionView()
@@ -62,6 +64,11 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
             return 16
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let character = Character(name:"SpiderMan")
+        self.delegate?.characterPressed(character)
+    }
+    
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        if indexPath.item < self.productList.count {
 //            let product = self.productList[indexPath.item]
@@ -70,6 +77,6 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
 //    }
 }
 
-//protocol CharacterDelegate: AnyObject {
-//    func characterPressed(_ character: character)
-//}
+protocol CharacterDelegate: AnyObject {
+    func characterPressed(_ character: Character)
+}

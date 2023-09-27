@@ -23,6 +23,17 @@ class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - Delegate
+
+extension HomeViewController: CharacterDelegate {
+    
+    func characterPressed(_ character: Character) {
+        let vc = CharacterDetailsViewController.instantiate(fromAppStoryboard: .Character)
+        self.navigationController?.pushViewController(vc, animated: true)
+        print("test")
+    }
+}
+
 // MARK: - Collection view
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -132,7 +143,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 48
+        return 48
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -150,10 +161,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharactersCollectionTableViewCell", for: indexPath) as! CharactersCollectionTableViewCell
         cell.selectionStyle = .none
+        cell.delegate = self
         return cell
     }
 }
 
 struct SliderImages {
     var image: UIImage?
+}
+
+struct Character {
+    var name: String?
 }

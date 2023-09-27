@@ -24,7 +24,7 @@ class Constants {
                 guard let window = UIApplication.shared.windows.first else { return }
                 guard let rootViewController = window.rootViewController else { return }
                 
-                let vc = OnboardingViewController.instantiate(fromAppStoryboard: .Onboarding)
+                let vc = CharacterDetailsViewController.instantiate(fromAppStoryboard: .Character)
                 vc.view.frame = rootViewController.view.frame
                 vc.view.layoutIfNeeded()
                 window.rootViewController = vc

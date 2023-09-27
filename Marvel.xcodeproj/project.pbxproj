@@ -46,6 +46,10 @@
 		42C11BA32AC35BBC00469A9B /* CharactersCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C11BA12AC35BBC00469A9B /* CharactersCollectionTableViewCell.xib */; };
 		42C11BA62AC35E1400469A9B /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11BA42AC35E1400469A9B /* CharacterCollectionViewCell.swift */; };
 		42C11BA72AC35E1400469A9B /* CharacterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42C11BA52AC35E1400469A9B /* CharacterCollectionViewCell.xib */; };
+		42EA29D12AC4049100989703 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA29D02AC4049100989703 /* CharacterDetailsViewController.swift */; };
+		42EA29D32AC404FA00989703 /* Character.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42EA29D22AC404FA00989703 /* Character.storyboard */; };
+		42EA29D62AC4160D00989703 /* CharacterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EA29D42AC4160D00989703 /* CharacterTableViewCell.swift */; };
+		42EA29D72AC4160D00989703 /* CharacterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42EA29D52AC4160D00989703 /* CharacterTableViewCell.xib */; };
 		4D4142ED254F0076182FA5B4 /* Pods_Marvel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A606FD65CEB52A2737C8798B /* Pods_Marvel.framework */; };
 		6C0EECBA069ECBDB4A103B2A /* Pods_Marvel_MarvelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D4EAD6D74AD35D9076BD765 /* Pods_Marvel_MarvelUITests.framework */; };
 		E8BA2B56DBDCB1827470BD34 /* Pods_MarvelTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B33EDE78557F12796B718D25 /* Pods_MarvelTests.framework */; };
@@ -113,6 +117,10 @@
 		42C11BA12AC35BBC00469A9B /* CharactersCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharactersCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		42C11BA42AC35E1400469A9B /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		42C11BA52AC35E1400469A9B /* CharacterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCollectionViewCell.xib; sourceTree = "<group>"; };
+		42EA29D02AC4049100989703 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		42EA29D22AC404FA00989703 /* Character.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Character.storyboard; sourceTree = "<group>"; };
+		42EA29D42AC4160D00989703 /* CharacterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewCell.swift; sourceTree = "<group>"; };
+		42EA29D52AC4160D00989703 /* CharacterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterTableViewCell.xib; sourceTree = "<group>"; };
 		596A0199D2896AC099F3359A /* Pods-Marvel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.debug.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.debug.xcconfig"; sourceTree = "<group>"; };
 		6307D6299E52416AB8CC2584 /* Pods-Marvel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel.release.xcconfig"; path = "Target Support Files/Pods-Marvel/Pods-Marvel.release.xcconfig"; sourceTree = "<group>"; };
 		7DBA0416D544026CF330E103 /* Pods-Marvel-MarvelUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel-MarvelUITests.release.xcconfig"; path = "Target Support Files/Pods-Marvel-MarvelUITests/Pods-Marvel-MarvelUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +219,7 @@
 		42C11B572AC2BC4E00469A9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				42EA29CF2AC4047200989703 /* Characters */,
 				42C11B942AC34A3200469A9B /* Home */,
 				42C11B582AC2BC5C00469A9B /* Splash */,
 				42C11B5A2AC2BC7300469A9B /* Onboarding */,
@@ -243,6 +252,7 @@
 				42C11B5C2AC2D49700469A9B /* test.storyboard */,
 				42C11B7F2AC3326F00469A9B /* Onboarding.storyboard */,
 				42C11B922AC3499100469A9B /* Home.storyboard */,
+				42EA29D22AC404FA00989703 /* Character.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -358,8 +368,18 @@
 				42C11BA12AC35BBC00469A9B /* CharactersCollectionTableViewCell.xib */,
 				42C11B9C2AC359A200469A9B /* HeaderTableViewCell.swift */,
 				42C11B9D2AC359A200469A9B /* HeaderTableViewCell.xib */,
+				42EA29D42AC4160D00989703 /* CharacterTableViewCell.swift */,
+				42EA29D52AC4160D00989703 /* CharacterTableViewCell.xib */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		42EA29CF2AC4047200989703 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				42EA29D02AC4049100989703 /* CharacterDetailsViewController.swift */,
+			);
+			path = Characters;
 			sourceTree = "<group>";
 		};
 		78C409BE8BD6320D3199C9BB /* Pods */ = {
@@ -499,9 +519,11 @@
 				42C11B312AC2B9F300469A9B /* Assets.xcassets in Resources */,
 				42C11B802AC3326F00469A9B /* Onboarding.storyboard in Resources */,
 				42C11BA72AC35E1400469A9B /* CharacterCollectionViewCell.xib in Resources */,
+				42EA29D72AC4160D00989703 /* CharacterTableViewCell.xib in Resources */,
 				42C11B912AC33C5C00469A9B /* OnboardingCollectionViewCell.xib in Resources */,
 				42C11B5D2AC2D49700469A9B /* test.storyboard in Resources */,
 				42C11B2F2AC2B9F200469A9B /* Main.storyboard in Resources */,
+				42EA29D32AC404FA00989703 /* Character.storyboard in Resources */,
 				42C11B932AC3499100469A9B /* Home.storyboard in Resources */,
 				42C11B9F2AC359A200469A9B /* HeaderTableViewCell.xib in Resources */,
 				42C11B992AC34AFB00469A9B /* SliderCollectionViewCell.xib in Resources */,
@@ -634,6 +656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C11BA62AC35E1400469A9B /* CharacterCollectionViewCell.swift in Sources */,
+				42EA29D62AC4160D00989703 /* CharacterTableViewCell.swift in Sources */,
 				42C11B712AC2E4EF00469A9B /* Validiations.swift in Sources */,
 				42C11B2C2AC2B9F200469A9B /* ViewController.swift in Sources */,
 				42C11B282AC2B9F200469A9B /* AppDelegate.swift in Sources */,
@@ -645,6 +668,7 @@
 				42C11B682AC2D93000469A9B /* CharactersModel.swift in Sources */,
 				42C11B892AC33A4B00469A9B /* Indicator.swift in Sources */,
 				42C11B622AC2D5A100469A9B /* TestService.swift in Sources */,
+				42EA29D12AC4049100989703 /* CharacterDetailsViewController.swift in Sources */,
 				42C11B5F2AC2D4B000469A9B /* TestViewController.swift in Sources */,
 				42C11B2A2AC2B9F200469A9B /* SceneDelegate.swift in Sources */,
 				42C11B642AC2D7C600469A9B /* Environments.swift in Sources */,
