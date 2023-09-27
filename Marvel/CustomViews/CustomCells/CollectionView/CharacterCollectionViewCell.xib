@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,13 +17,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="189" height="237"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="La1-0g-iFC">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="La1-0g-iFC">
                         <rect key="frame" x="0.0" y="0.0" width="189" height="237"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" name="darkRed"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="La1-0g-iFC" secondAttribute="bottom" id="9ir-3K-hZ9"/>
                 <constraint firstAttribute="trailing" secondItem="La1-0g-iFC" secondAttribute="trailing" id="Ssi-0E-gsp"/>
@@ -33,14 +31,9 @@
             </constraints>
             <size key="customSize" width="189" height="237"/>
             <connections>
-                <outlet property="characterImageView" destination="La1-0g-iFC" id="pEt-dB-pSt"/>
+                <outlet property="characterImageView" destination="La1-0g-iFC" id="xRH-zE-i1F"/>
             </connections>
             <point key="canvasLocation" x="245.03816793893128" y="85.563380281690144"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <namedColor name="darkRed">
-            <color red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

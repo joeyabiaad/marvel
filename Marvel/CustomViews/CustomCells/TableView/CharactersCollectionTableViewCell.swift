@@ -53,8 +53,9 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
         if indexPath.item < self.character.count {
             let character = self.character[indexPath.item]
-            cell.character = character
+    
             cell.setupCell(result: character)
+           
         }
             return cell
     }
