@@ -8,7 +8,7 @@
 import UIKit
 
 class CharactersCollectionTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     weak var delegate: CharacterDelegate?
@@ -40,7 +40,7 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
         
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        
         let nib = UINib(nibName: "CharacterCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "CharacterCollectionViewCell")
     }
@@ -50,30 +50,28 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
         if indexPath.item < self.character.count {
             let character = self.character[indexPath.item]
-    
             cell.setupCell(result: character)
-           
         }
-            return cell
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 124, height: 220)
+        return CGSize(width: 124, height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 8
+        return 8
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 16
+        return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -81,12 +79,12 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
         self.delegate?.characterPressed(character)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if indexPath.item < self.productList.count {
-//            let product = self.productList[indexPath.item]
-//            self.delegate?.productPressed(product)
-//        }
-//    }
+    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //        if indexPath.item < self.productList.count {
+    //            let product = self.productList[indexPath.item]
+    //            self.delegate?.productPressed(product)
+    //        }
+    //    }
 }
 
 protocol CharacterDelegate: AnyObject {
