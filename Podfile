@@ -9,6 +9,7 @@ target 'Marvel' do
 
   pod 'Moya'
   pod 'SwiftyJSON'
+  pod 'SDWebImage'
   
   target 'MarvelTests' do
     inherit! :search_paths

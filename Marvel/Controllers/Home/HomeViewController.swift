@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Moya
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
 
@@ -14,12 +16,18 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionPageControl: UIPageControl!
     
     private var sliderList: [SliderImages] = [SliderImages(image: UIImage(named: "test1")),SliderImages(image: UIImage(named: "test2")), SliderImages(image: UIImage(named: "test3"))]
-                                                                                                                                      
+    
+    private var characterlist: [Result] = []
+                            
+    /// pagination
+    private let limit: Int = 20
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initializeCollectionView()
         self.startTimer()
         self.initializeTableView()
+        self.getCharacters()
     }
 }
 
@@ -30,7 +38,6 @@ extension HomeViewController: CharacterDelegate {
     func characterPressed(_ character: Character) {
         let vc = CharacterDetailsViewController.instantiate(fromAppStoryboard: .Character)
         self.navigationController?.pushViewController(vc, animated: true)
-        print("test")
     }
 }
 
@@ -132,10 +139,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = self.tableView.dequeueReusableCell(withIdentifier: "HeaderTableViewCell") as! HeaderTableViewCell
             header.headerLabel.text = "test"
@@ -147,22 +150,65 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("\(self.characterlist.count)")
         return 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.1
+        return 268
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CharactersCollectionTableViewCell", for: indexPath) as! CharactersCollectionTableViewCell
         cell.selectionStyle = .none
         cell.delegate = self
+        cell.character = self.characterlist
         return cell
+    }
+}
+
+// MARK: - APIs
+
+extension HomeViewController {
+    
+    func getCharacters() {
+        
+        let provider = MoyaProvider<CharactersService>(plugins: [NetworkLoggerPlugin()])
+        
+        provider.request(CharactersService.getCharacters) { [weak self] (result) in
+            guard let self = self else { return }
+            defer {
+            }
+            
+            switch result {
+            case let .success(response):
+                do {
+                    #if DEBUG
+                    let json = try JSON(data: response.data)
+                    print(json)
+                    print(response.statusCode)
+                    #endif
+                    let status = HttpStatus(rawValue: response.statusCode) ?? .none
+                    if status.success {
+                        let result = try JSONDecoder().decode(CharactersModel.self, from: response.data)
+                        self.characterlist = result.data?.results ?? []
+                        self.tableView.reloadData()
+                    } else {
+                        let error = try JSONDecoder().decode(ErrorModel.self, from: response.data)
+                        print(error.errors)
+                    }
+                } catch {
+                    print(Messages.unexpectedError)
+                }
+            case .failure(_):
+//                print(Messages.noNetwork) { [weak self] (okPressed) in
+//                    guard let self = self else { return }
+//                    if okPressed {
+                        self.getCharacters()
+//                    }
+//                }
+            }
+        }
     }
 }
 

@@ -13,6 +13,12 @@ class CharactersCollectionTableViewCell: UITableViewCell {
     
     weak var delegate: CharacterDelegate?
     
+    internal var character: [Result] = [] {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.initializeCollectionView()
@@ -40,16 +46,21 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return min(4, character.count)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCollectionViewCell", for: indexPath) as! CharacterCollectionViewCell
+        if indexPath.item < self.character.count {
+            let character = self.character[indexPath.item]
+            cell.character = character
+            cell.setupCell(result: character)
+        }
             return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 120, height: 200)
+            return CGSize(width: 124, height: 220)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

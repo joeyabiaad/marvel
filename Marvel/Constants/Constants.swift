@@ -24,7 +24,7 @@ class Constants {
                 guard let window = UIApplication.shared.windows.first else { return }
                 guard let rootViewController = window.rootViewController else { return }
                 
-                let vc = CharacterDetailsViewController.instantiate(fromAppStoryboard: .Character)
+                let vc = OnboardingViewController.instantiate(fromAppStoryboard: .Onboarding)
                 vc.view.frame = rootViewController.view.frame
                 vc.view.layoutIfNeeded()
                 window.rootViewController = vc
@@ -36,7 +36,8 @@ class Constants {
                 guard let window = UIApplication.shared.windows.first else { return }
                 guard let rootViewController = window.rootViewController else { return }
                 
-                let vc = HomeViewController.instantiate(fromAppStoryboard: .Home)
+                let storyboard = UIStoryboard(name: "Home", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
                 vc.view.frame = rootViewController.view.frame
                 vc.view.layoutIfNeeded()
                 window.rootViewController = vc

@@ -25,6 +25,12 @@ class CharacterDetailsViewController: UIViewController {
         self.contentHeight = self.contentParentView.bounds.height
         self.initializeTableView()
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func backPressed(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - Table View

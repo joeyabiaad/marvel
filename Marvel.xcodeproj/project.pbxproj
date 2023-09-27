@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4298DD3B2AC4383B0037F473 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD3A2AC4383B0037F473 /* UIImageExtension.swift */; };
+		4298DD3D2AC4395A0037F473 /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD3C2AC4395A0037F473 /* Closures.swift */; };
 		42C11B282AC2B9F200469A9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B272AC2B9F200469A9B /* AppDelegate.swift */; };
 		42C11B2A2AC2B9F200469A9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B292AC2B9F200469A9B /* SceneDelegate.swift */; };
 		42C11B2C2AC2B9F200469A9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B2B2AC2B9F200469A9B /* ViewController.swift */; };
@@ -74,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		1D4EAD6D74AD35D9076BD765 /* Pods_Marvel_MarvelUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_MarvelUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4298DD3A2AC4383B0037F473 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		4298DD3C2AC4395A0037F473 /* Closures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
 		42C11B242AC2B9F200469A9B /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C11B272AC2B9F200469A9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42C11B292AC2B9F200469A9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 				42C11B8A2AC33A8A00469A9B /* UIView+CornerRadius.swift */,
 				42C11B6A2AC2E07900469A9B /* extension.swift */,
 				42C11B7B2AC32A8C00469A9B /* GifLoad.swift */,
+				4298DD3A2AC4383B0037F473 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				42C11B272AC2B9F200469A9B /* AppDelegate.swift */,
 				42C11B292AC2B9F200469A9B /* SceneDelegate.swift */,
 				42C11B752AC2E74600469A9B /* Storyboards.swift */,
+				4298DD3C2AC4395A0037F473 /* Closures.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -656,10 +662,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C11BA62AC35E1400469A9B /* CharacterCollectionViewCell.swift in Sources */,
+				4298DD3D2AC4395A0037F473 /* Closures.swift in Sources */,
 				42EA29D62AC4160D00989703 /* CharacterTableViewCell.swift in Sources */,
 				42C11B712AC2E4EF00469A9B /* Validiations.swift in Sources */,
 				42C11B2C2AC2B9F200469A9B /* ViewController.swift in Sources */,
 				42C11B282AC2B9F200469A9B /* AppDelegate.swift in Sources */,
+				4298DD3B2AC4383B0037F473 /* UIImageExtension.swift in Sources */,
 				42C11B9A2AC34AFB00469A9B /* SliderCollectionViewCell.swift in Sources */,
 				42C11B8B2AC33A8A00469A9B /* UIView+CornerRadius.swift in Sources */,
 				42C11B7C2AC32A8C00469A9B /* GifLoad.swift in Sources */,
