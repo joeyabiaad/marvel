@@ -42,7 +42,7 @@ struct Messages {
     static let metamaskNotInstalled = "metamask_required"
     
     static let forceUpdate = "Update application"
-    static let noNetwork = "noNetwork"
-    static let unexpectedError = "unexpected_error"
+    static let noNetwork = "No Network"
+    static let unexpectedError = "Unexpected Error"
 }
 

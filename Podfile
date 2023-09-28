@@ -10,6 +10,8 @@ target 'Marvel' do
   pod 'Moya'
   pod 'SwiftyJSON'
   pod 'SDWebImage'
+  pod 'SkeletonView'
+  pod 'SkeletonView'
   
   target 'MarvelTests' do
     inherit! :search_paths

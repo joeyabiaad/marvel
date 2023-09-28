@@ -23,18 +23,14 @@ class CharacterDetailsTableViewCell: UITableViewCell {
     }
     
     internal func setupCell(model: CharacterDetails) {
-//        self.cellImageView.image = model.type.image
         if let values = model.values {
-            let combinedText = values.joined(separator: " ") // Join the values with a space separator
+            let combinedText = values.joined(separator: " ")
             self.valueLabel.text = combinedText
         } else {
-            self.valueLabel.text = nil // Handle the case when values is nil
+            self.valueLabel.text = nil
         }
-
-//        self.valueLabel.text = model.values
         self.typeLabel.text = model.type.title
         self.valueLabel.isHidden = model.type.expandable
-//        self.valueLabel.textColor = model.type.valueTextColor
         self.dropDownImage.isHidden = !model.type.expandable
     }
 }

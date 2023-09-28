@@ -15,12 +15,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionPageControl: UIPageControl!
     
-    private var sliderList: [SliderImages] = [SliderImages(image: UIImage(named: "test1")),SliderImages(image: UIImage(named: "test2")), SliderImages(image: UIImage(named: "test3"))]
+    private var sliderList: [SliderImages] = [SliderImages(image: UIImage(named: "marvel")),SliderImages(image: UIImage(named: "marvel2")), SliderImages(image: UIImage(named: "marvel3"))]
     
     private var characterlist: [Result] = []
-                            
-    /// pagination
-    private let limit: Int = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,7 +127,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     private func initializeTableView() {
         self.tableView.dataSource = self
         self.tableView.delegate = self
-//        self.tableView.isSkeletonable = true
         self.tableView.separatorStyle = .none
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         let headerNib = UINib(nibName: "HeaderTableViewCell", bundle: nil)
@@ -139,10 +135,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         self.tableView.register(characterNib, forCellReuseIdentifier: "CharactersCollectionTableViewCell")
     }
     
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = self.tableView.dequeueReusableCell(withIdentifier: "HeaderTableViewCell") as! HeaderTableViewCell
-            header.headerLabel.text = "test"
+            header.headerLabel.text = "Characters"
+        header.viewAllPressed = { [weak self] in
+            guard let self = self else { return }
+            let vc = AllCharactersViewController.instantiate(fromAppStoryboard: .Character)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         return header
     }
     
@@ -173,14 +173,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 extension HomeViewController {
     
     func getCharacters() {
-        
         let provider = MoyaProvider<CharactersService>(plugins: [NetworkLoggerPlugin()])
         
         provider.request(CharactersService.getCharacters) { [weak self] (result) in
             guard let self = self else { return }
             defer {
             }
-            
             switch result {
             case let .success(response):
                 do {
@@ -196,18 +194,17 @@ extension HomeViewController {
                         self.tableView.reloadData()
                     } else {
                         let error = try JSONDecoder().decode(ErrorModel.self, from: response.data)
-                        print(error.errors)
+                        self.openInformativePopup(description: error.errors) { _ in
+                            self.getCharacters()
+                        }
                     }
                 } catch {
-                    print(Messages.unexpectedError)
+                    self.openInformativePopup(description: Messages.unexpectedError)
                 }
             case .failure(_):
-//                print(Messages.noNetwork) { [weak self] (okPressed) in
-//                    guard let self = self else { return }
-//                    if okPressed {
+                 self.openInformativePopup(description: Messages.noNetwork) { _ in
                         self.getCharacters()
-//                    }
-//                }
+                    }
             }
         }
     }

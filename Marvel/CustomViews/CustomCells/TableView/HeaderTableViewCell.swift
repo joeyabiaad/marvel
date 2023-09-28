@@ -18,7 +18,7 @@ class HeaderTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.viewAllLabel.text = "ViewAll"
+        self.viewAllLabel.text = "View All"
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(onViewAllPressed))
         self.viewAllView.isUserInteractionEnabled = true

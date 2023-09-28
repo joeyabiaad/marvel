@@ -15,6 +15,12 @@ class Constants {
         static var screenHeight: CGFloat = UIScreen.main.bounds.height
     }
     
+    // MARK: - Colors
+    
+    struct Colors {
+        static let darkRed = UIColor(named: "darkRed")!
+    }
+    
     // MARK: - Go to screens
     
     struct Transact {

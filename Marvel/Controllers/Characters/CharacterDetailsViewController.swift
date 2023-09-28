@@ -29,20 +29,36 @@ class CharacterDetailsViewController: UIViewController {
         super.viewDidLoad()
         self.contentHeight = self.contentParentView.bounds.height
         self.initializeTableView()
-        self.characterImageView.addCharacterImage(character: character)
-        self.titleLabel.text = self.character?.name
         self.setupData()
     }
     
     private func setupData() {
+        self.characterImageView.addCharacterImage(character: character)
+        self.titleLabel.text = self.character?.name
+        
         if let comicsItems = self.character?.comics?.items {
             let comicsNames = comicsItems.compactMap { $0.name }
             self.detailsList.append(CharacterDetails(type: .comics, values: comicsNames))
             
         }
-        self.detailsList.append(CharacterDetails(type: .events, values: ["test"], title: "Events"))
-        self.detailsList.append(CharacterDetails(type: .series, values: ["test"], title: "Series"))
-        self.detailsList.append(CharacterDetails(type: .stories, values: ["test"], title: "Stories"))
+        
+        if let seriesItems = self.character?.series?.items {
+            let seriesNames = seriesItems.compactMap { $0.name }
+            print(seriesNames)
+            self.detailsList.append(CharacterDetails(type: .series, values: seriesNames))
+        }
+        
+        if let eventsItems = self.character?.events?.items {
+            let eventsNames = eventsItems.compactMap { $0.name }
+            print(eventsNames)
+            self.detailsList.append(CharacterDetails(type: .events, values: eventsNames))
+        }
+        
+        if let storiesItems = self.character?.stories?.items {
+            let storiesNames = storiesItems.compactMap { $0.name }
+            print(storiesNames)
+            self.detailsList.append(CharacterDetails(type: .stories, values: storiesNames))
+        }
     }
     
     private func reloadData() {
@@ -90,6 +106,7 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
             let tap = UITapGestureRecognizer(target: self, action: #selector(headerPressed(sender:)))
             header.isUserInteractionEnabled = true
             header.dropDownImage.tag = 1000 + section
+            header.dropDownImage.image = characterDetails.isExpanded ? UIImage(named: "arrowUp"):UIImage(named: "arrowDown")
             header.tag = 100 + section
             header.addGestureRecognizer(tap)
         }
@@ -109,6 +126,12 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
         switch charachterDetails.type {
         case .comics:
             return charachterDetails.isExpanded ? (self.character?.comics?.items ?? []).count:0
+        case .series:
+            return charachterDetails.isExpanded ? (self.character?.series?.items ?? []).count:0
+        case .events:
+            return charachterDetails.isExpanded ? (self.character?.events?.items ?? []).count:0
+        case .stories:
+            return charachterDetails.isExpanded ? (self.character?.stories?.items ?? []).count:0
         default:
             return 0
         }
@@ -127,17 +150,13 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
         
         let characterDetails = self.detailsList[indexPath.section]
         switch characterDetails.type {
-        case .comics:
+        default:
             if let values = characterDetails.values {
                 ///Get the specific comic title
                 let comicTitle = values[indexPath.row]
                 ///Set the comic title in the label
                 cell.descriptionLabel.text = comicTitle
             }
-            cell.selectionStyle = .none
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "AboutCollectionTableViewCell", for: indexPath) as! AboutCollectionTableViewCell
             cell.selectionStyle = .none
             return cell
         }
@@ -162,7 +181,6 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
         /// arrow
         if let imageViewOfSection = self.view.viewWithTag(1000 + section) as? UIImageView {
             imageViewOfSection.image = self.detailsList[section].isExpanded ? UIImage(named: "arrowUp"):UIImage(named: "arrowDown")
-            imageViewOfSection.tintColor = .white
         }
         self.reloadData()
     }

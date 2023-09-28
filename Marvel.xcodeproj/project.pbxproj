@@ -13,6 +13,11 @@
 		4298DD412AC49A3A0037F473 /* CharacterDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD3F2AC49A3A0037F473 /* CharacterDetailsTableViewCell.xib */; };
 		4298DD442AC4AA8D0037F473 /* AboutCollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD422AC4AA8D0037F473 /* AboutCollectionTableViewCell.xib */; };
 		4298DD452AC4AA8D0037F473 /* AboutCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD432AC4AA8D0037F473 /* AboutCollectionTableViewCell.swift */; };
+		4298DD472AC55CE80037F473 /* AllCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD462AC55CE80037F473 /* AllCharactersViewController.swift */; };
+		4298DD492AC55D680037F473 /* CustomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD482AC55D680037F473 /* CustomCollectionView.swift */; };
+		4298DD4C2AC573160037F473 /* InformativePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD4A2AC573160037F473 /* InformativePopupViewController.xib */; };
+		4298DD4D2AC573160037F473 /* InformativePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD4B2AC573160037F473 /* InformativePopupViewController.swift */; };
+		4298DD4F2AC5B5DD0037F473 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD4E2AC5B5DD0037F473 /* Settings.storyboard */; };
 		42C11B282AC2B9F200469A9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B272AC2B9F200469A9B /* AppDelegate.swift */; };
 		42C11B2A2AC2B9F200469A9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B292AC2B9F200469A9B /* SceneDelegate.swift */; };
 		42C11B2C2AC2B9F200469A9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B2B2AC2B9F200469A9B /* ViewController.swift */; };
@@ -86,6 +91,11 @@
 		4298DD3F2AC49A3A0037F473 /* CharacterDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CharacterDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		4298DD422AC4AA8D0037F473 /* AboutCollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutCollectionTableViewCell.xib; sourceTree = "<group>"; };
 		4298DD432AC4AA8D0037F473 /* AboutCollectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		4298DD462AC55CE80037F473 /* AllCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCharactersViewController.swift; sourceTree = "<group>"; };
+		4298DD482AC55D680037F473 /* CustomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionView.swift; sourceTree = "<group>"; };
+		4298DD4A2AC573160037F473 /* InformativePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformativePopupViewController.xib; sourceTree = "<group>"; };
+		4298DD4B2AC573160037F473 /* InformativePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformativePopupViewController.swift; sourceTree = "<group>"; };
+		4298DD4E2AC5B5DD0037F473 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		42C11B242AC2B9F200469A9B /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C11B272AC2B9F200469A9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42C11B292AC2B9F200469A9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +275,7 @@
 				42C11B7F2AC3326F00469A9B /* Onboarding.storyboard */,
 				42C11B922AC3499100469A9B /* Home.storyboard */,
 				42EA29D22AC404FA00989703 /* Character.storyboard */,
+				4298DD4E2AC5B5DD0037F473 /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -341,6 +352,9 @@
 			isa = PBXGroup;
 			children = (
 				42C11B882AC33A4B00469A9B /* Indicator.swift */,
+				4298DD482AC55D680037F473 /* CustomCollectionView.swift */,
+				4298DD4B2AC573160037F473 /* InformativePopupViewController.swift */,
+				4298DD4A2AC573160037F473 /* InformativePopupViewController.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -395,6 +409,7 @@
 		42EA29CF2AC4047200989703 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				4298DD462AC55CE80037F473 /* AllCharactersViewController.swift */,
 				42EA29D02AC4049100989703 /* CharacterDetailsViewController.swift */,
 			);
 			path = Characters;
@@ -539,6 +554,7 @@
 				42C11BA72AC35E1400469A9B /* CharacterCollectionViewCell.xib in Resources */,
 				42EA29D72AC4160D00989703 /* CharacterTableViewCell.xib in Resources */,
 				4298DD442AC4AA8D0037F473 /* AboutCollectionTableViewCell.xib in Resources */,
+				4298DD4C2AC573160037F473 /* InformativePopupViewController.xib in Resources */,
 				42C11B912AC33C5C00469A9B /* OnboardingCollectionViewCell.xib in Resources */,
 				42C11B5D2AC2D49700469A9B /* test.storyboard in Resources */,
 				4298DD412AC49A3A0037F473 /* CharacterDetailsTableViewCell.xib in Resources */,
@@ -546,6 +562,7 @@
 				42EA29D32AC404FA00989703 /* Character.storyboard in Resources */,
 				42C11B932AC3499100469A9B /* Home.storyboard in Resources */,
 				42C11B9F2AC359A200469A9B /* HeaderTableViewCell.xib in Resources */,
+				4298DD4F2AC5B5DD0037F473 /* Settings.storyboard in Resources */,
 				42C11B992AC34AFB00469A9B /* SliderCollectionViewCell.xib in Resources */,
 				42C11BA32AC35BBC00469A9B /* CharactersCollectionTableViewCell.xib in Resources */,
 			);
@@ -676,12 +693,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C11BA62AC35E1400469A9B /* CharacterCollectionViewCell.swift in Sources */,
+				4298DD472AC55CE80037F473 /* AllCharactersViewController.swift in Sources */,
 				4298DD3D2AC4395A0037F473 /* Closures.swift in Sources */,
 				42EA29D62AC4160D00989703 /* CharacterTableViewCell.swift in Sources */,
 				42C11B712AC2E4EF00469A9B /* Validiations.swift in Sources */,
 				42C11B2C2AC2B9F200469A9B /* ViewController.swift in Sources */,
 				42C11B282AC2B9F200469A9B /* AppDelegate.swift in Sources */,
 				4298DD3B2AC4383B0037F473 /* UIImageExtension.swift in Sources */,
+				4298DD4D2AC573160037F473 /* InformativePopupViewController.swift in Sources */,
 				42C11B9A2AC34AFB00469A9B /* SliderCollectionViewCell.swift in Sources */,
 				42C11B8B2AC33A8A00469A9B /* UIView+CornerRadius.swift in Sources */,
 				42C11B7C2AC32A8C00469A9B /* GifLoad.swift in Sources */,
@@ -697,6 +716,7 @@
 				4298DD402AC49A3A0037F473 /* CharacterDetailsTableViewCell.swift in Sources */,
 				42C11B642AC2D7C600469A9B /* Environments.swift in Sources */,
 				42C11B832AC3380A00469A9B /* GradientButton.swift in Sources */,
+				4298DD492AC55D680037F473 /* CustomCollectionView.swift in Sources */,
 				42C11B852AC3390700469A9B /* OnboardingViewController.swift in Sources */,
 				42C11B9E2AC359A200469A9B /* HeaderTableViewCell.swift in Sources */,
 				42C11B962AC34A4300469A9B /* HomeViewController.swift in Sources */,

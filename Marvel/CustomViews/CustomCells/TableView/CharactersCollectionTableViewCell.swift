@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class CharactersCollectionTableViewCell: UITableViewCell {
     
@@ -15,7 +16,14 @@ class CharactersCollectionTableViewCell: UITableViewCell {
     
     internal var character: [Result] = [] {
         didSet {
-            self.collectionView.reloadData()
+            collectionView.reloadData()
+            if character.isEmpty {
+                let customGradient = SkeletonGradient(baseColor: .gray)
+                collectionView.showAnimatedGradientSkeleton(usingGradient: customGradient)
+            
+            } else {
+                collectionView.hideSkeleton()
+            }
         }
     }
     
@@ -37,7 +45,7 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        
+        collectionView.isSkeletonable = true
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -89,4 +97,17 @@ extension CharactersCollectionTableViewCell: UICollectionViewDataSource, UIColle
 
 protocol CharacterDelegate: AnyObject {
     func characterPressed(_ character: Result)
+}
+
+// MARK: - Skeleton view load
+
+extension CharactersCollectionTableViewCell: SkeletonCollectionViewDataSource {
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return "CharacterCollectionViewCell"
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
 }

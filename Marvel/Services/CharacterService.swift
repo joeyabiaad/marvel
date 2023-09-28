@@ -14,6 +14,7 @@ enum CharactersService {
     
     case getCharacters
     case getCharactersComics(characterId: Int)
+    case getAllCharacters(pageIndex: Int, pageSize: Int)
 }
 
 // MARK: - TargetType Protocol Implementation
@@ -30,7 +31,7 @@ extension CharactersService: TargetType {
     
     var path: String {
         switch self {
-        case .getCharacters:
+        case .getCharacters, .getAllCharacters:
             return ""
         case .getCharactersComics(let characterId):
             return "\(characterId)/comics"
@@ -39,7 +40,7 @@ extension CharactersService: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getCharacters, .getCharactersComics:
+        case .getCharacters, .getCharactersComics, .getAllCharacters:
             return .get
         }
     }
@@ -48,12 +49,17 @@ extension CharactersService: TargetType {
         switch self {
         case .getCharacters, .getCharactersComics:
             return [:]
+        case .getAllCharacters(let pageIndex, let pageSize):
+            return [
+                "offset": pageIndex,
+                "limit": pageSize
+            ]
         }
     }
     
     var task: Task {
         switch self {
-        case .getCharacters, .getCharactersComics:
+        case .getCharacters, .getCharactersComics, .getAllCharacters:
             let timestamp = String(Date().timeIntervalSince1970)
             let hash = "\(timestamp)\(CharactersService.privateKey)\(CharactersService.publicKey)".md5
             let authParameters: [String: Any] = [

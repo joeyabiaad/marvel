@@ -79,7 +79,7 @@
             </variation>
             <connections>
                 <outlet property="cellImageView" destination="o8Q-cY-1kd" id="3V2-0g-CBs"/>
-                <outlet property="dropDownImage" destination="Mse-Wz-zd6" id="R2z-Bi-zTd"/>
+                <outlet property="dropDownImage" destination="Mse-Wz-zd6" id="W2a-ac-X6c"/>
                 <outlet property="typeLabel" destination="cU7-27-8z9" id="EPI-qM-KqL"/>
                 <outlet property="valueLabel" destination="14f-Q7-jh2" id="fNw-Eb-Eg8"/>
             </connections>

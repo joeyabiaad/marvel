@@ -2,7 +2,7 @@
 //  CharactersModel.swift
 //  Marvel
 //
-//  Created by Elio Chalhoub on 26/09/2023.
+//  Created by Joey Abi Aad on 26/09/2023.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ struct CharactersModel: Decodable, Encodable {
 }
 
 struct Dataa: Decodable, Encodable {
-    var offset: Int?
+    var offset: Int
     var limit: Int?
     var total: Int?
     var count: Int?
@@ -26,8 +26,11 @@ struct Result: Decodable, Encodable {
     var modified: String?
     var thumbnail: Thumbnail?
     var resourceURI: String?
-    var comics: Comics?
+    var comics: Details?
     var returned: Int?
+    var series: Details?
+    var stories: Details?
+    var events: Details?
 }
 
 struct Thumbnail: Decodable, Encodable {
@@ -35,7 +38,7 @@ struct Thumbnail: Decodable, Encodable {
     var `extension`: String?
 }
 
-struct Comics: Decodable, Encodable {
+struct Details: Decodable, Encodable {
     var available: Int?
     var collectionURI: String?
     var items: [Item]?

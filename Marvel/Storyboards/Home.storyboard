@@ -94,16 +94,6 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" image="settings"/>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyC-qo-9Sb">
-                                                    <rect key="frame" x="305" y="22" width="24" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="24" id="0Ze-b0-Qfa"/>
-                                                        <constraint firstAttribute="width" constant="24" id="70S-wk-9ey"/>
-                                                    </constraints>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="search"/>
-                                                </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marvelLogo" translatesAutoresizingMaskIntoConstraints="NO" id="dLV-AF-YSg">
                                                     <rect key="frame" x="134.66666666666666" y="18" width="123.99999999999997" height="32"/>
                                                     <constraints>
@@ -114,12 +104,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="hwu-kZ-RkU" firstAttribute="leading" secondItem="LyC-qo-9Sb" secondAttribute="trailing" constant="24" id="6nx-FY-aR7"/>
-                                                <constraint firstItem="LyC-qo-9Sb" firstAttribute="centerY" secondItem="APo-30-Pop" secondAttribute="centerY" id="GfF-sW-4n1"/>
                                                 <constraint firstAttribute="trailing" secondItem="hwu-kZ-RkU" secondAttribute="trailing" constant="16" id="R2A-0b-G2Q"/>
                                                 <constraint firstItem="dLV-AF-YSg" firstAttribute="centerX" secondItem="APo-30-Pop" secondAttribute="centerX" id="RIH-pd-HfE"/>
+                                                <constraint firstItem="dLV-AF-YSg" firstAttribute="centerY" secondItem="hwu-kZ-RkU" secondAttribute="centerY" id="TSR-fK-tXJ"/>
                                                 <constraint firstItem="hwu-kZ-RkU" firstAttribute="centerY" secondItem="APo-30-Pop" secondAttribute="centerY" id="mb5-oA-q0q"/>
-                                                <constraint firstItem="dLV-AF-YSg" firstAttribute="centerY" secondItem="LyC-qo-9Sb" secondAttribute="centerY" id="pGa-kB-trO"/>
                                                 <constraint firstAttribute="height" constant="68" id="pde-5i-sTP"/>
                                             </constraints>
                                         </view>
@@ -151,6 +139,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -181,7 +172,6 @@
     <resources>
         <image name="bg" width="393" height="852"/>
         <image name="marvelLogo" width="355" height="187"/>
-        <image name="search" width="24" height="24"/>
         <image name="settings" width="24" height="24"/>
         <namedColor name="red">
             <color red="0.92941176470588238" green="0.10196078431372549" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
