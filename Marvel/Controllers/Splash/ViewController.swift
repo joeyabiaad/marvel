@@ -18,6 +18,13 @@ class ViewController: UIViewController {
         self.dispatchGroup.enter()
         self.gifImage.loadGifOnce(name: "Marvel_Logo_Final", animationSpeed: 1)
         
+        /// User interface style
+        if #available(iOS 13.0, *) {
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = Constants.Static.userInterfaceStyle
+            }
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: .now()+1.4) {
             self.dispatchGroup.leave()
         }

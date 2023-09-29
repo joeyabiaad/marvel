@@ -23,6 +23,7 @@ class CharacterDetailsTableViewCell: UITableViewCell {
     }
     
     internal func setupCell(model: CharacterDetails) {
+        self.cellImageView.image = model.type.image
         if let values = model.values {
             let combinedText = values.joined(separator: " ")
             self.valueLabel.text = combinedText

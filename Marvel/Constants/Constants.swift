@@ -13,6 +13,20 @@ class Constants {
     struct Static {
         static var screenWidth: CGFloat = UIScreen.main.bounds.width
         static var screenHeight: CGFloat = UIScreen.main.bounds.height
+        
+        @available(iOS 13.0, *)
+        static var userInterfaceStyle: UIUserInterfaceStyle {
+            get {
+                if let interfaceStyle = UserDefaults.standard.value(forKey: SharedKeys.userInterfaceStyle.rawValue) as? Int {
+                    return UIUserInterfaceStyle(rawValue: interfaceStyle) ?? .light
+                } else {
+                    return UIScreen.main.traitCollection.userInterfaceStyle
+                }
+            }
+            set {
+                UserDefaults.standard.setValue(newValue.rawValue, forKey: SharedKeys.userInterfaceStyle.rawValue)
+            }
+        }
     }
     
     // MARK: - Colors

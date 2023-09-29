@@ -18,6 +18,13 @@
 		4298DD4C2AC573160037F473 /* InformativePopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD4A2AC573160037F473 /* InformativePopupViewController.xib */; };
 		4298DD4D2AC573160037F473 /* InformativePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD4B2AC573160037F473 /* InformativePopupViewController.swift */; };
 		4298DD4F2AC5B5DD0037F473 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD4E2AC5B5DD0037F473 /* Settings.storyboard */; };
+		4298DD522AC5B7630037F473 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD512AC5B7630037F473 /* SettingsViewController.swift */; };
+		4298DD552AC5B7A40037F473 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD532AC5B7A40037F473 /* SettingsTableViewCell.swift */; };
+		4298DD562AC5B7A40037F473 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD542AC5B7A40037F473 /* SettingsTableViewCell.xib */; };
+		4298DD582AC5BA5A0037F473 /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD572AC5BA5A0037F473 /* ThemeViewController.swift */; };
+		4298DD5A2AC5BAC50037F473 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD592AC5BAC50037F473 /* CheckBox.swift */; };
+		4298DD5D2AC5BB290037F473 /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD5B2AC5BB290037F473 /* ThemeTableViewCell.swift */; };
+		4298DD5E2AC5BB290037F473 /* ThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD5C2AC5BB290037F473 /* ThemeTableViewCell.xib */; };
 		42C11B282AC2B9F200469A9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B272AC2B9F200469A9B /* AppDelegate.swift */; };
 		42C11B2A2AC2B9F200469A9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B292AC2B9F200469A9B /* SceneDelegate.swift */; };
 		42C11B2C2AC2B9F200469A9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B2B2AC2B9F200469A9B /* ViewController.swift */; };
@@ -27,8 +34,6 @@
 		42C11B3F2AC2B9F300469A9B /* MarvelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B3E2AC2B9F300469A9B /* MarvelTests.swift */; };
 		42C11B492AC2B9F300469A9B /* MarvelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B482AC2B9F300469A9B /* MarvelUITests.swift */; };
 		42C11B4B2AC2B9F300469A9B /* MarvelUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B4A2AC2B9F300469A9B /* MarvelUITestsLaunchTests.swift */; };
-		42C11B5D2AC2D49700469A9B /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42C11B5C2AC2D49700469A9B /* test.storyboard */; };
-		42C11B5F2AC2D4B000469A9B /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B5E2AC2D4B000469A9B /* TestViewController.swift */; };
 		42C11B622AC2D5A100469A9B /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B612AC2D5A100469A9B /* CharacterService.swift */; };
 		42C11B642AC2D7C600469A9B /* Environments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B632AC2D7C600469A9B /* Environments.swift */; };
 		42C11B682AC2D93000469A9B /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B672AC2D93000469A9B /* CharactersModel.swift */; };
@@ -96,6 +101,13 @@
 		4298DD4A2AC573160037F473 /* InformativePopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformativePopupViewController.xib; sourceTree = "<group>"; };
 		4298DD4B2AC573160037F473 /* InformativePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformativePopupViewController.swift; sourceTree = "<group>"; };
 		4298DD4E2AC5B5DD0037F473 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		4298DD512AC5B7630037F473 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4298DD532AC5B7A40037F473 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		4298DD542AC5B7A40037F473 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		4298DD572AC5BA5A0037F473 /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
+		4298DD592AC5BAC50037F473 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		4298DD5B2AC5BB290037F473 /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
+		4298DD5C2AC5BB290037F473 /* ThemeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeTableViewCell.xib; sourceTree = "<group>"; };
 		42C11B242AC2B9F200469A9B /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C11B272AC2B9F200469A9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42C11B292AC2B9F200469A9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,8 +121,6 @@
 		42C11B442AC2B9F300469A9B /* MarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C11B482AC2B9F300469A9B /* MarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelUITests.swift; sourceTree = "<group>"; };
 		42C11B4A2AC2B9F300469A9B /* MarvelUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		42C11B5C2AC2D49700469A9B /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
-		42C11B5E2AC2D4B000469A9B /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		42C11B612AC2D5A100469A9B /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		42C11B632AC2D7C600469A9B /* Environments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environments.swift; sourceTree = "<group>"; };
 		42C11B672AC2D93000469A9B /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
@@ -181,6 +191,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4298DD502AC5B7510037F473 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				4298DD512AC5B7630037F473 /* SettingsViewController.swift */,
+				4298DD572AC5BA5A0037F473 /* ThemeViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		42C11B1B2AC2B9F200469A9B = {
 			isa = PBXGroup;
 			children = (
@@ -241,11 +260,11 @@
 		42C11B572AC2BC4E00469A9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				42EA29CF2AC4047200989703 /* Characters */,
-				42C11B942AC34A3200469A9B /* Home */,
 				42C11B582AC2BC5C00469A9B /* Splash */,
 				42C11B5A2AC2BC7300469A9B /* Onboarding */,
-				42C11B5E2AC2D4B000469A9B /* TestViewController.swift */,
+				42C11B942AC34A3200469A9B /* Home */,
+				42EA29CF2AC4047200989703 /* Characters */,
+				4298DD502AC5B7510037F473 /* Settings */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -271,7 +290,6 @@
 			children = (
 				42C11B2D2AC2B9F200469A9B /* Main.storyboard */,
 				42C11B322AC2B9F300469A9B /* LaunchScreen.storyboard */,
-				42C11B5C2AC2D49700469A9B /* test.storyboard */,
 				42C11B7F2AC3326F00469A9B /* Onboarding.storyboard */,
 				42C11B922AC3499100469A9B /* Home.storyboard */,
 				42EA29D22AC404FA00989703 /* Character.storyboard */,
@@ -355,6 +373,7 @@
 				4298DD482AC55D680037F473 /* CustomCollectionView.swift */,
 				4298DD4B2AC573160037F473 /* InformativePopupViewController.swift */,
 				4298DD4A2AC573160037F473 /* InformativePopupViewController.xib */,
+				4298DD592AC5BAC50037F473 /* CheckBox.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -402,6 +421,10 @@
 				4298DD3F2AC49A3A0037F473 /* CharacterDetailsTableViewCell.xib */,
 				4298DD432AC4AA8D0037F473 /* AboutCollectionTableViewCell.swift */,
 				4298DD422AC4AA8D0037F473 /* AboutCollectionTableViewCell.xib */,
+				4298DD532AC5B7A40037F473 /* SettingsTableViewCell.swift */,
+				4298DD542AC5B7A40037F473 /* SettingsTableViewCell.xib */,
+				4298DD5B2AC5BB290037F473 /* ThemeTableViewCell.swift */,
+				4298DD5C2AC5BB290037F473 /* ThemeTableViewCell.xib */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -548,15 +571,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C11B342AC2B9F300469A9B /* LaunchScreen.storyboard in Resources */,
+				4298DD5E2AC5BB290037F473 /* ThemeTableViewCell.xib in Resources */,
 				42C11B7E2AC3318C00469A9B /* Marvel_Logo_Final.gif in Resources */,
 				42C11B312AC2B9F300469A9B /* Assets.xcassets in Resources */,
 				42C11B802AC3326F00469A9B /* Onboarding.storyboard in Resources */,
 				42C11BA72AC35E1400469A9B /* CharacterCollectionViewCell.xib in Resources */,
+				4298DD562AC5B7A40037F473 /* SettingsTableViewCell.xib in Resources */,
 				42EA29D72AC4160D00989703 /* CharacterTableViewCell.xib in Resources */,
 				4298DD442AC4AA8D0037F473 /* AboutCollectionTableViewCell.xib in Resources */,
 				4298DD4C2AC573160037F473 /* InformativePopupViewController.xib in Resources */,
 				42C11B912AC33C5C00469A9B /* OnboardingCollectionViewCell.xib in Resources */,
-				42C11B5D2AC2D49700469A9B /* test.storyboard in Resources */,
 				4298DD412AC49A3A0037F473 /* CharacterDetailsTableViewCell.xib in Resources */,
 				42C11B2F2AC2B9F200469A9B /* Main.storyboard in Resources */,
 				42EA29D32AC404FA00989703 /* Character.storyboard in Resources */,
@@ -698,6 +722,7 @@
 				42EA29D62AC4160D00989703 /* CharacterTableViewCell.swift in Sources */,
 				42C11B712AC2E4EF00469A9B /* Validiations.swift in Sources */,
 				42C11B2C2AC2B9F200469A9B /* ViewController.swift in Sources */,
+				4298DD582AC5BA5A0037F473 /* ThemeViewController.swift in Sources */,
 				42C11B282AC2B9F200469A9B /* AppDelegate.swift in Sources */,
 				4298DD3B2AC4383B0037F473 /* UIImageExtension.swift in Sources */,
 				4298DD4D2AC573160037F473 /* InformativePopupViewController.swift in Sources */,
@@ -706,14 +731,16 @@
 				42C11B7C2AC32A8C00469A9B /* GifLoad.swift in Sources */,
 				42C11B6D2AC2E3FA00469A9B /* HelperModels.swift in Sources */,
 				42C11B902AC33C5C00469A9B /* OnboardingCollectionViewCell.swift in Sources */,
+				4298DD5D2AC5BB290037F473 /* ThemeTableViewCell.swift in Sources */,
 				42C11B682AC2D93000469A9B /* CharactersModel.swift in Sources */,
 				4298DD452AC4AA8D0037F473 /* AboutCollectionTableViewCell.swift in Sources */,
 				42C11B892AC33A4B00469A9B /* Indicator.swift in Sources */,
 				42C11B622AC2D5A100469A9B /* CharacterService.swift in Sources */,
+				4298DD552AC5B7A40037F473 /* SettingsTableViewCell.swift in Sources */,
 				42EA29D12AC4049100989703 /* CharacterDetailsViewController.swift in Sources */,
-				42C11B5F2AC2D4B000469A9B /* TestViewController.swift in Sources */,
 				42C11B2A2AC2B9F200469A9B /* SceneDelegate.swift in Sources */,
 				4298DD402AC49A3A0037F473 /* CharacterDetailsTableViewCell.swift in Sources */,
+				4298DD5A2AC5BAC50037F473 /* CheckBox.swift in Sources */,
 				42C11B642AC2D7C600469A9B /* Environments.swift in Sources */,
 				42C11B832AC3380A00469A9B /* GradientButton.swift in Sources */,
 				4298DD492AC55D680037F473 /* CustomCollectionView.swift in Sources */,
@@ -721,6 +748,7 @@
 				42C11B9E2AC359A200469A9B /* HeaderTableViewCell.swift in Sources */,
 				42C11B962AC34A4300469A9B /* HomeViewController.swift in Sources */,
 				42C11B762AC2E74600469A9B /* Storyboards.swift in Sources */,
+				4298DD522AC5B7630037F473 /* SettingsViewController.swift in Sources */,
 				42C11B6F2AC2E4A800469A9B /* Error.swift in Sources */,
 				42C11B6B2AC2E07900469A9B /* extension.swift in Sources */,
 				42C11BA22AC35BBC00469A9B /* CharactersCollectionTableViewCell.swift in Sources */,

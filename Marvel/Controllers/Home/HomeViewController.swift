@@ -26,6 +26,10 @@ class HomeViewController: UIViewController {
         self.initializeTableView()
         self.getCharacters()
     }
+    @IBAction func settingsPressed(_ sender: Any) {
+        let vc = SettingsViewController.instantiate(fromAppStoryboard: .Settings)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - Delegate

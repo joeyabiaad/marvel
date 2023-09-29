@@ -38,31 +38,35 @@ class CharacterDetailsViewController: UIViewController {
         
         if let comicsItems = self.character?.comics?.items {
             let comicsNames = comicsItems.compactMap { $0.name }
-            self.detailsList.append(CharacterDetails(type: .comics, values: comicsNames))
-            
+            if !(comicsNames.count == 0) {
+                self.detailsList.append(CharacterDetails(type: .comics, values: comicsNames))
+            }
         }
         
         if let seriesItems = self.character?.series?.items {
             let seriesNames = seriesItems.compactMap { $0.name }
-            print(seriesNames)
-            self.detailsList.append(CharacterDetails(type: .series, values: seriesNames))
+            if !(seriesNames.count == 0) {
+                self.detailsList.append(CharacterDetails(type: .series, values: seriesNames))
+            }
         }
         
         if let eventsItems = self.character?.events?.items {
             let eventsNames = eventsItems.compactMap { $0.name }
             print(eventsNames)
-            self.detailsList.append(CharacterDetails(type: .events, values: eventsNames))
+            if !(eventsNames.count == 0) {
+                self.detailsList.append(CharacterDetails(type: .events, values: eventsNames))
+            }
         }
         
         if let storiesItems = self.character?.stories?.items {
             let storiesNames = storiesItems.compactMap { $0.name }
-            print(storiesNames)
-            self.detailsList.append(CharacterDetails(type: .stories, values: storiesNames))
+            if !(storiesNames.count == 0) {
+                self.detailsList.append(CharacterDetails(type: .stories, values: storiesNames))
+            }
         }
     }
     
     private func reloadData() {
-//        self.setupData()
         self.tableView.reloadData()
     }
     
@@ -91,7 +95,6 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        print("\(self.detailsList.count)")
         return self.detailsList.count
     }
     
@@ -101,6 +104,12 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
         if section >= self.detailsList.count { return nil }
         let header = self.tableView.dequeueReusableCell(withIdentifier: "CharacterDetailsTableViewCell") as! CharacterDetailsTableViewCell
         header.setupCell(model: self.detailsList[section])
+        
+        if characterDetails.values?.count == 0  {
+            header.dropDownImage.isHidden = true
+        } else  {
+            header.dropDownImage.isHidden = false
+        }
         
         if characterDetails.type.expandable {
             let tap = UITapGestureRecognizer(target: self, action: #selector(headerPressed(sender:)))
@@ -265,6 +274,19 @@ enum CharacterDetailsType {
             return "Series"
         case .stories:
             return "Stories"
+        }
+    }
+    
+    var image: UIImage? {
+        switch self {
+        case .comics:
+            return UIImage(named: "comics")
+        case .events:
+            return UIImage(named: "events")
+        case .series:
+            return UIImage(named: "series")
+        case .stories:
+            return UIImage(named: "stories")
         }
     }
     
