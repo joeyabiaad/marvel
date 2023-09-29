@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var arrowImageView: UIImageView!
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -20,8 +21,9 @@ class SettingsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setupCell(item: Settings) {
-        self.itemImageView.image = item.image
-        self.titleLabel.text = item.title
+    func setupCell(item: SettingsOptions) {
+        self.itemImageView.image = item.type.image
+        self.titleLabel.text = item.type.title
+        self.arrowImageView.image = item.type.image2
     }
 }

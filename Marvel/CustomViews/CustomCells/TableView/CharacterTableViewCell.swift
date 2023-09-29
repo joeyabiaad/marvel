@@ -2,7 +2,7 @@
 //  CharacterTableViewCell.swift
 //  Marvel
 //
-//  Created by Elio Chalhoub on 27/09/2023.
+//  Created by Joey Abi Aad on 27/09/2023.
 //
 
 import UIKit
@@ -19,5 +19,4 @@ class CharacterTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
 }

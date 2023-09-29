@@ -29,10 +29,26 @@ class Constants {
         }
     }
     
+    struct Shared {
+        static var fontSize: FontSize {
+            get {
+                if let fontSize = UserDefaults.standard.value(forKey: SharedKeys.fontSize.rawValue) as? String {
+                    return FontSize(rawValue: fontSize) ?? .regular
+                } else {
+                    return .regular
+                }
+            }
+            set {
+                UserDefaults.standard.setValue(newValue.rawValue, forKey: SharedKeys.fontSize.rawValue)
+            }
+        }
+    }
+    
     // MARK: - Colors
     
     struct Colors {
         static let darkRed = UIColor(named: "darkRed")!
+        static let bw = UIColor(named: "bw")!
     }
     
     // MARK: - Go to screens

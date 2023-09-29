@@ -9,6 +9,7 @@ import UIKit
 
 class OnboardingCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
@@ -18,7 +19,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell(onboardingTips: OnboardingTips) {
-        self.titleLabel.text = onboardingTips.title
-        self.descriptionLabel.text = onboardingTips.description
+        self.imageView.image = onboardingTips.image
+        self.titleLabel.text = onboardingTips.description
 }
 }

@@ -25,6 +25,7 @@
 		4298DD5A2AC5BAC50037F473 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD592AC5BAC50037F473 /* CheckBox.swift */; };
 		4298DD5D2AC5BB290037F473 /* ThemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD5B2AC5BB290037F473 /* ThemeTableViewCell.swift */; };
 		4298DD5E2AC5BB290037F473 /* ThemeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4298DD5C2AC5BB290037F473 /* ThemeTableViewCell.xib */; };
+		4298DD602AC71A330037F473 /* FontSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4298DD5F2AC71A330037F473 /* FontSizeViewController.swift */; };
 		42C11B282AC2B9F200469A9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B272AC2B9F200469A9B /* AppDelegate.swift */; };
 		42C11B2A2AC2B9F200469A9B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B292AC2B9F200469A9B /* SceneDelegate.swift */; };
 		42C11B2C2AC2B9F200469A9B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C11B2B2AC2B9F200469A9B /* ViewController.swift */; };
@@ -108,6 +109,7 @@
 		4298DD592AC5BAC50037F473 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		4298DD5B2AC5BB290037F473 /* ThemeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeTableViewCell.swift; sourceTree = "<group>"; };
 		4298DD5C2AC5BB290037F473 /* ThemeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThemeTableViewCell.xib; sourceTree = "<group>"; };
+		4298DD5F2AC71A330037F473 /* FontSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeViewController.swift; sourceTree = "<group>"; };
 		42C11B242AC2B9F200469A9B /* Marvel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C11B272AC2B9F200469A9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42C11B292AC2B9F200469A9B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				4298DD512AC5B7630037F473 /* SettingsViewController.swift */,
 				4298DD572AC5BA5A0037F473 /* ThemeViewController.swift */,
+				4298DD5F2AC71A330037F473 /* FontSizeViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				42C11B6F2AC2E4A800469A9B /* Error.swift in Sources */,
 				42C11B6B2AC2E07900469A9B /* extension.swift in Sources */,
 				42C11BA22AC35BBC00469A9B /* CharactersCollectionTableViewCell.swift in Sources */,
+				4298DD602AC71A330037F473 /* FontSizeViewController.swift in Sources */,
 				42C11B732AC2E6A900469A9B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

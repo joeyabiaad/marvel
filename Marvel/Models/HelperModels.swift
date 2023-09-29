@@ -64,6 +64,7 @@ enum SharedKeys: String {
     case encryptionIv = "encryptionIV"
     case shouldShowOnboarding = "shouldShowOnboarding"
     case shouldShowChooseNickname = "shouldShowChooseNickname"
+    case fontSize = "fontSize"
 }
 
 enum Month: Int {

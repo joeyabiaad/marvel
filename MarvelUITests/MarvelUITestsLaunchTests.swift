@@ -2,7 +2,7 @@
 //  MarvelUITestsLaunchTests.swift
 //  MarvelUITests
 //
-//  Created by Elio Chalhoub on 26/09/2023.
+//  Created by Joey Abi Aad on 26/09/2023.
 //
 
 import XCTest

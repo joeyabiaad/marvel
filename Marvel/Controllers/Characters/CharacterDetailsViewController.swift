@@ -115,7 +115,7 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
             let tap = UITapGestureRecognizer(target: self, action: #selector(headerPressed(sender:)))
             header.isUserInteractionEnabled = true
             header.dropDownImage.tag = 1000 + section
-            header.dropDownImage.image = characterDetails.isExpanded ? UIImage(named: "arrowUp"):UIImage(named: "arrowDown")
+            header.dropDownImage.image = characterDetails.isExpanded ? UIImage(named: "arrow-up-black"):UIImage(named: "dropDown-black")
             header.tag = 100 + section
             header.addGestureRecognizer(tap)
         }
@@ -150,7 +150,7 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
         let charachterDetails = self.detailsList[indexPath.section]
         switch charachterDetails.type {
         default:
-            return 48
+            return UITableView.automaticDimension
         }
     }
     
@@ -165,6 +165,12 @@ extension CharacterDetailsViewController: UITableViewDataSource, UITableViewDele
                 let comicTitle = values[indexPath.row]
                 ///Set the comic title in the label
                 cell.descriptionLabel.text = comicTitle
+                ///change fontSize
+                var size: CGFloat = Constants.Shared.fontSize.fontSize
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    size += 10
+                }
+                cell.descriptionLabel.font = .systemFont(ofSize: size)
             }
             cell.selectionStyle = .none
             return cell
@@ -280,13 +286,13 @@ enum CharacterDetailsType {
     var image: UIImage? {
         switch self {
         case .comics:
-            return UIImage(named: "comics")
+            return UIImage(named: "comics-black")
         case .events:
-            return UIImage(named: "events")
+            return UIImage(named: "events-black")
         case .series:
-            return UIImage(named: "series")
+            return UIImage(named: "series-black")
         case .stories:
-            return UIImage(named: "stories")
+            return UIImage(named: "stories-black")
         }
     }
     

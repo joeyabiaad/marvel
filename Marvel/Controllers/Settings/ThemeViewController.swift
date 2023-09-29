@@ -2,7 +2,7 @@
 //  ThemeViewController.swift
 //  Marvel
 //
-//  Created by Elio Chalhoub on 28/09/2023.
+//  Created by Joey Abi Aad on 28/09/2023.
 //
 
 import UIKit

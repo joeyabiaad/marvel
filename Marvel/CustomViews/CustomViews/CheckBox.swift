@@ -22,7 +22,7 @@ class CheckBoxView: UIView {
             self.isUserInteractionEnabled = userInteraction
         }
     }
-    @IBInspectable var viewBorderColor: UIColor = .white
+    @IBInspectable var viewBorderColor: UIColor = Constants.Colors.bw
     
     internal var fillCircle: Bool = false
     

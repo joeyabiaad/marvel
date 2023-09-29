@@ -11,14 +11,11 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var settings: [Settings] {
-        get {
-            var temp: [Settings] = []
-            temp.append(contentsOf: [
-                .appearance
-            ])
-            return temp
-        }
+    private var settings: [SettingsOptions] {
+        return [
+            .init(type: .appearance),
+            .init(type: .font)
+            ]
     }
     
     override func viewDidLoad() {
@@ -30,6 +27,42 @@ class SettingsViewController: UIViewController {
     
     @IBAction func onBackPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - Font Size
+    
+    private func openActionSheet() {
+        /// do not open if iPad
+//        if UIDevice.current.userInterfaceIdiom == .pad {return}
+
+        let actionSheet: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+       actionSheet.view.tintColor = Constants.Colors.darkRed
+    
+        let cancelActionButton = UIAlertAction(title: "Cancel", style: .cancel)
+        actionSheet.addAction(cancelActionButton)
+        let regular = UIAlertAction(title: FontSize.regular.title, style: .default) { [weak self] _ in
+            Constants.Shared.fontSize = FontSize.regular
+            self?.tableView.reloadData()
+        }
+        actionSheet.addAction(regular)
+        let large = UIAlertAction(title: FontSize.large.title, style: .default) { [weak self] _ in
+            Constants.Shared.fontSize = FontSize.large
+            self?.tableView.reloadData()
+        }
+        actionSheet.addAction(large)
+        let veryLarge = UIAlertAction(title: FontSize.veryLarge.title, style: .default) { [weak self] _ in
+            Constants.Shared.fontSize = FontSize.veryLarge
+            self?.tableView.reloadData()
+        }
+        actionSheet.addAction(veryLarge)
+        if let popoverController = actionSheet.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = self.view.bounds
+        }
+        actionSheet.popoverPresentationController?.sourceView = self.view
+        actionSheet.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.maxY, width: 0, height: 0)
+        actionSheet.popoverPresentationController?.permittedArrowDirections = []
+        self.present(actionSheet, animated: true, completion: nil)
     }
 }
 
@@ -63,20 +96,36 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row < settings.count {
             let option = settings[indexPath.row]
-            if let vc = option.vc {
-                self.navigationController?.pushViewController(vc, animated: true)
+            switch option.type {
+            case .font:
+                self.openActionSheet()
+            default:
+                if let vc = option.type.vc {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         }
     }
 }
 
+struct SettingsOptions {
+    var type: Settings
+    
+    init(type: Settings) {
+        self.type = type
+    }
+}
+
 enum Settings {
     case appearance
+    case font
     
     var title: String {
         switch self {
         case .appearance:
             return "Appearance"
+        case .font:
+            return "Font"
         }
     }
     
@@ -84,14 +133,54 @@ enum Settings {
         switch self {
         case .appearance:
             return UIImage(named: "brightness")
+        case .font:
+            return UIImage(named: "brightness")
         }
     }
-    
+
+    var image2: UIImage? {
+        switch self {
+        case .appearance:
+            return UIImage(named: "rightArrow-black")
+        case .font:
+            return UIImage(named: "dropDown-black")
+        }
+    }
     var vc: UIViewController? {
         switch self {
         case .appearance:
             let vc = ThemeViewController.instantiate(fromAppStoryboard: .Settings)
             return vc
+        default:
+            return nil
+        }
+    }
+}
+
+enum FontSize: String {
+    case regular
+    case large
+    case veryLarge
+    
+    var fontSize: CGFloat {
+        switch self {
+        case .regular:
+            return 16
+        case .large:
+            return 20
+        case .veryLarge:
+            return 30
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .regular:
+            return "Regular"
+        case .large:
+            return "Large"
+        case .veryLarge:
+            return "Very Large"
         }
     }
 }

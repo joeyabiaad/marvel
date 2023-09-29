@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7iG-bb-asg">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -75,7 +75,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="8" id="7fI-01-uub"/>
                                             </constraints>
-                                            <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="pageIndicatorTintColor" name="bw"/>
                                             <color key="currentPageIndicatorTintColor" name="red"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -92,7 +92,7 @@
                                                     </constraints>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="settings"/>
+                                                    <state key="normal" image="settings-black 1"/>
                                                     <connections>
                                                         <action selector="settingsPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bHc-SK-3bB"/>
                                                     </connections>
@@ -175,7 +175,10 @@
     <resources>
         <image name="bg" width="393" height="852"/>
         <image name="marvelLogo" width="355" height="187"/>
-        <image name="settings" width="24" height="24"/>
+        <image name="settings-black 1" width="24" height="24"/>
+        <namedColor name="bw">
+            <color red="0.070588235294117646" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="red">
             <color red="0.92941176470588238" green="0.10196078431372549" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

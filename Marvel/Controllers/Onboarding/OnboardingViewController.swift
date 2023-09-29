@@ -12,7 +12,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var indicatorView: Indicator!
     
-    private var onboardingTips: [OnboardingTips] = [OnboardingTips(title: "Lorem Ipsum 1", description: "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book."), OnboardingTips(title: "Lorem Ipsum 2", description: "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book."), OnboardingTips(title: "Lorem Ipsum 3", description: "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book."), OnboardingTips(title: "Lorem Ipsum 4", description: "The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.")]
+    private var onboardingTips: [OnboardingTips] = [OnboardingTips(image: UIImage(named: "yaka"),description: "You can view all marvel characters"), OnboardingTips(image: UIImage(named: "thor"),description: "View their details"),OnboardingTips(image: UIImage(named: "captain"), description: "Comics, Events, Stories, Series")]
     
     
     override func viewDidLoad() {
@@ -84,6 +84,6 @@ extension OnboardingViewController: UICollectionViewDataSource, UICollectionView
 }
 
 struct OnboardingTips {
-    var title: String?
+    var image: UIImage?
     var description: String?
 }
